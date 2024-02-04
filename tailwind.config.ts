@@ -3,6 +3,7 @@ import { fontFamily } from 'tailwindcss/defaultTheme';
 
 export default {
   content: ['./src/**/*.tsx'],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -19,10 +20,13 @@ export default {
         spacing: 'margin, padding',
       },
       colors: {
-        primary: '#393939',
+        primary: '#1c1c1c',
+        secondary: '#868686',
+        tertiary: '#e4e4e4',
         primaryBlue: '#199cd6',
         darkBlue: '#0f5d80',
         lightBlue: '#75c3e6',
+        primaryGold: '#aea255',
       },
       backgroundImage: {
       },
