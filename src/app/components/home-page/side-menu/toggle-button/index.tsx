@@ -5,7 +5,7 @@ const ThemeToggle: React.FC = () => {
 
     // This function will be called when the toggle is clicked
     const handleToggle = () => {
-        toggleTheme(theme === 'default' ? 'dark' : 'default');
+        toggleTheme();
     };
 
 

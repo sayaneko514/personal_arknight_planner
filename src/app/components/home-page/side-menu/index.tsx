@@ -179,7 +179,7 @@ const SideNav = ({ className }: SideNavProps) => {
                     <span className="px-6 py-4 text-[0.6rem] font-bold uppercase text-primaryGold dark:text-lightBlue">
                         Dark Mode
                     </span>
-                    <span className="flex items-center px-5 py-[0.6rem]">
+                    <span className="flex items-center px-6 py-[0.6rem]">
                         <ThemeToggle />
                     </span>
                 </li>
