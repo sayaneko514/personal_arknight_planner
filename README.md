@@ -1,3 +1,15 @@
+# How to run the project
+
+## Local Dev
+
+- npm run install
+- npm run dev
+  to start the project
+- npx prisma studio
+  this is to start the database manager
+- npx prisma db push
+  only do this if your database does not already exist
+
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
