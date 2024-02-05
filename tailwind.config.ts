@@ -27,6 +27,7 @@ export default {
         darkBlue: '#0f5d80',
         lightBlue: '#75c3e6',
         primaryGold: '#aea255',
+        secondaryGold: '#beb476'
       },
       backgroundImage: {
       },
