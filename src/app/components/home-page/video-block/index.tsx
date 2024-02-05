@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { FaStar } from "react-icons/fa";
 
 // Define the shape of your video sources with specific keys
 const videoSources: Record<'default' | 'january' | 'february', string> = {
@@ -10,7 +11,7 @@ const videoSources: Record<'default' | 'january' | 'february', string> = {
 
 // Define background styles for each video source button
 const buttonBackgrounds: Record<keyof typeof videoSources, string> = {
-    default: 'bg-lightBlue hover:bg-primaryBlue',
+    default: 'bg-primaryBlue hover:bg-darkBlue',
     january: 'bg-red-400 hover:bg-red-600',
     february: 'bg-lime-300 hover:bg-lime-500',
     // ... other months or backgrounds
@@ -30,6 +31,7 @@ const VideoBlock: React.FC = () => {
 
     // Get all video keys and their positions
     const videoKeys = Object.keys(videoSources) as Array<keyof typeof videoSources>;
+
 
     return (
         <>
@@ -64,7 +66,7 @@ const VideoBlock: React.FC = () => {
                                 onClick={() => changeVideo(key)}
                             >
                                 <span className="text-sm font-semibold text-white">
-                                    {key === 'default' ? 'A' : index} {/* Conditional text */}
+                                    {(key === 'default' ? <FaStar /> : index)}
                                 </span>
                             </button>
                         );

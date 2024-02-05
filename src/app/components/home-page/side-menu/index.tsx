@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import SideNavLink from './side-menu-item';
 import ThemeToggle from './toggle-button';
-import { FaBars, FaHome, FaPlus, FaIdCard, FaDatabase, FaScrewdriver } from "react-icons/fa";
+import { FaHome, FaPlus, FaChessPawn, FaIdCard, FaDatabase, FaScrewdriver } from "react-icons/fa";
 import CollapseButton from './collapse_button';
+import LoginModal from '../../login-modal';
 
 interface SideNavProps {
     className?: string;
@@ -26,6 +28,16 @@ const SideNav: React.FC<SideNavProps> = ({ className }) => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const [isModalOpen, setModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setModalOpen(false);
+    };
+
     return (
         <div className="relative">
             {!isSidebarOpen && (
@@ -34,23 +46,21 @@ const SideNav: React.FC<SideNavProps> = ({ className }) => {
 
             <nav
                 id="sidenav-8"
-                className={`fixed top-0 left-0 z-40 h-screen w-60 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                className={`fixed top-0 left-0 z-40 flex flex-col h-screen w-60 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
                     } lg:translate-x-0 overflow-y-auto bg-white shadow-xl dark:bg-zinc-800 ${className}`}
                 data-te-sidenav-init
                 data-te-sidenav-hidden="false"
                 data-te-sidenav-position="fixed"
                 data-te-sidenav-accordion="true"
             >
-                <a
-                    href="/"
-                    className="mb-7 flex items-center justify-center border-b-2 border-solid border-primaryGold dark:border-darkBlue py-6 outline-none"
+                <Link href="/" className="mb-7 flex items-center justify-center border-b-2 border-solid border-primaryGold dark:border-darkBlue py-6 outline-none"
                     data-te-ripple-init
                     data-te-ripple-color="primary"
                 >
                     <span className="text-primary hover:text-secondary dark:text-primaryBlue dark:hover:text-lightBlue">Rhode Island Module</span>
-                </a>
+                </Link>
                 <ul
-                    className="relative m-0 list-none px-[0.5rem] pb-12"
+                    className="relative m-0 list-none px-[0.5rem] pb-12 flex-grow overflow-y-auto"
                     data-te-sidenav-menu-ref
                 >
                     <li className="relative">
@@ -69,7 +79,7 @@ const SideNav: React.FC<SideNavProps> = ({ className }) => {
                             Add
                         </span>
                         <SideNavLink
-                            href="#"
+                            href="/add-operators"
                             id="add_operators_btn"
                         >
                             <span
@@ -101,7 +111,7 @@ const SideNav: React.FC<SideNavProps> = ({ className }) => {
                         >
                             <span
                                 className="mr-4 [&>svg]:h-5 [&>svg]:w-5">
-                                <FaIdCard />
+                                <FaChessPawn />
                             </span>
                             <span>Operators</span>
                         </SideNavLink>
@@ -142,7 +152,17 @@ const SideNav: React.FC<SideNavProps> = ({ className }) => {
                         </span>
                     </li>
                 </ul>
+                <div className="w-full pt-6">
+                    <button
+                        className="flex items-center justify-center w-full h-10 px-4 text-sm font-medium text-white bg-primaryGold hover:text-tertiary hover:bg-secondaryGold dark:bg-primaryBlue dark:text-white dark:hover:bg-darkBlue dark:hover:text-inherit transition-colors duration-200 ease-in-out"
+                        onClick={handleOpenModal}
+                    >
+                        <FaIdCard />
+                        <span className="ml-2 text-sm font-medium">Account</span>
+                    </button>
+                </div>
             </nav>
+            <LoginModal isOpen={isModalOpen} onClose={handleCloseModal} />
 
             {isSidebarOpen && (
                 <div

@@ -36,7 +36,7 @@ const AudioControl: React.FC = () => {
     };
 
     return (
-        <div className="fixed top-5 right-5 bg-white dark:bg-primary text-primaryGold dark:text-primaryBlue hover:text-secondaryGold dark:hover:text-lightBlue rounded-md shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+        <div className="fixed top-5 right-5 hover:bg-white dark:hover:bg-primary bg-white bg-opacity-80 dark:bg-primary dark:bg-opacity-80 text-primaryGold dark:text-primaryBlue hover:text-secondaryGold dark:hover:text-lightBlue rounded-md shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
             <button onClick={toggleMute} className="p-2">
                 {isMuted ? <FaVolumeMute size={20} /> : <FaVolumeUp size={20} />}
             </button>
